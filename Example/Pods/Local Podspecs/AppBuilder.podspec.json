@@ -1,0 +1,22 @@
+{
+  "name": "AppBuilder",
+  "version": "0.1.0",
+  "summary": "A short description of AppBuilder.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/许朕/AppBuilder",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "许朕": "xuzhen@chidudata.com"
+  },
+  "source": {
+    "git": "https://github.com/许朕/AppBuilder.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "AppBuilder/Classes/**/*"
+}

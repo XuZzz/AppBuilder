@@ -9,14 +9,14 @@
     "file": "LICENSE"
   },
   "authors": {
-    "许朕": "xuzhen@chidudata.com"
+    "Xu": "xuzhen0924@gmail.com"
   },
   "source": {
     "git": "https://github.com/许朕/AppBuilder.git",
     "tag": "0.1.0"
   },
   "platforms": {
-    "ios": "9.0"
+    "ios": "11.0"
   },
   "source_files": "AppBuilder/Classes/**/*"
 }

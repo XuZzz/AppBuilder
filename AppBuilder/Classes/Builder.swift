@@ -41,4 +41,9 @@ extension AppBuilderWrapper where Base: UIView {
         c(base)
         return base.builder
     }
+    
+    
+    public func getSelf()-> Self {
+        return base.builder
+    }
 }

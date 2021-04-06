@@ -1,9 +1,9 @@
 {
   "name": "AppBuilder",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "summary": "A short description of AppBuilder.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/许朕/AppBuilder",
+  "homepage": "https://github.com/XuZzz/AppBuilder",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,11 +12,13 @@
     "Xu": "xuzhen0924@gmail.com"
   },
   "source": {
-    "git": "https://github.com/许朕/AppBuilder.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/XuZzz/AppBuilder.git",
+    "tag": "0.1.1"
   },
   "platforms": {
-    "ios": "11.0"
+    "ios": "9.0"
   },
-  "source_files": "AppBuilder/Classes/**/*"
+  "source_files": "AppBuilder/Classes/**/*",
+  "swift_versions": "5.0",
+  "swift_version": "5.0"
 }

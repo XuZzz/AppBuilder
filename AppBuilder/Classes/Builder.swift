@@ -8,13 +8,13 @@
 
 import Foundation
 
-protocol AppBuilderNameSpace {
+public protocol AppBuilderNameSpace {
     associatedtype WrapperType
     var builder: WrapperType {get}
 }
 
 extension AppBuilderNameSpace {
-    var builder: AppBuilderWrapper<Self> {
+    public var builder: AppBuilderWrapper<Self> {
         return AppBuilderWrapper(self)
     }
 }
@@ -25,4 +25,18 @@ public struct AppBuilderWrapper<Base> {
     public init(_ base: Base) {
         self.base = base
     }
+}
+
+extension UIView: AppBuilderNameSpace {}
+
+extension AppBuilderWrapper where Base: UIView {
+    @discardableResult
+    public func addhere(at superview: UIView)-> Self {
+        superview.addSubview(base)
+        return base.builder
+    }
+}
+
+func helloBuilder() {
+    print("Builder listening")
 }

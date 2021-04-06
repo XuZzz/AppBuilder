@@ -48,8 +48,8 @@ extension AppBuilderWrapper where Base: UIView {
     }
     
     @discardableResult
-    public func config(_ c: (Base)-> Void)-> Self {
-        c(base)
+    public func config(_ config: (Base)-> Void)-> Self {
+        config(base)
         return base.builder
     }
 }
@@ -77,5 +77,10 @@ extension AppBuilderWrapper where Base: UIButton {
         return base.builder
     }
     
+    @discardableResult
+    public func backgroundColor(color: UIColor, state: UIControl.State)-> Self {
+        base.setBackgroundColor(color: color, state: state)
+        return base.builder
+    }
     
 }

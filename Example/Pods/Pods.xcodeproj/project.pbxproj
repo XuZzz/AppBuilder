@@ -130,6 +130,7 @@
 		94B18F2CFF543F6B2E43E84630C337E2 /* SuiteHooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A55F76229DCD25F418C41FAC7E242D /* SuiteHooks.swift */; };
 		94B2ED723498ADE0A41E87505897D042 /* UILayoutSupport+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A03B9560A6D276E8BC4C35AE6C219 /* UILayoutSupport+Extensions.swift */; };
 		94DA3131D64B3D904BE28E72F1871065 /* BeAKindOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF948F13DCD55FB32E747ADBE62228B0 /* BeAKindOf.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
+		95D13993261C676800F86615 /* UIImage+AppBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D13992261C676800F86615 /* UIImage+AppBuilder.swift */; };
 		96A53B8C7E48FF092BA8C86395A226B7 /* FBSnapshotTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A998BEA5655B4F0C806A8291E60A86C /* FBSnapshotTestCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		97E8F81B49E3013D7EECBF73946FDF87 /* ConstraintMakerExtendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839F703109318525BAEBC1771BC37CDF /* ConstraintMakerExtendable.swift */; };
 		983DF3E620BEE81FC0CA5B090296DD9F /* ConstraintPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53606A92369E6F2CBE853C8E655C87F7 /* ConstraintPriority.swift */; };
@@ -467,6 +468,7 @@
 		928F98A7596472E35B55082E62BDD0A4 /* Quick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Quick.release.xcconfig; sourceTree = "<group>"; };
 		92FFF0FCFE8A13A834ABBCB70CC03E55 /* Typealiases.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Typealiases.swift; path = Source/Typealiases.swift; sourceTree = "<group>"; };
 		94CA9491565421BF1C5F341464017411 /* AllPass.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AllPass.swift; path = Sources/Nimble/Matchers/AllPass.swift; sourceTree = "<group>"; };
+		95D13992261C676800F86615 /* UIImage+AppBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+AppBuilder.swift"; sourceTree = "<group>"; };
 		979486118B3E90C08386079D57962701 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97F91D918B244DBC2FAE5B37F26962B4 /* QuickSpec.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QuickSpec.h; path = Sources/QuickObjectiveC/QuickSpec.h; sourceTree = "<group>"; };
 		9896FF016230D906944106B79DD45009 /* QuickSpec.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QuickSpec.m; path = Sources/QuickObjectiveC/QuickSpec.m; sourceTree = "<group>"; };
@@ -909,6 +911,7 @@
 			isa = PBXGroup;
 			children = (
 				4EBCF36907708891110EC097E6F55B2C /* UIButton+AppBuilder.swift */,
+				95D13992261C676800F86615 /* UIImage+AppBuilder.swift */,
 			);
 			name = Extension;
 			path = AppBuilder/Classes/Extension;
@@ -1655,6 +1658,7 @@
 				C69623CDE445B316F44F4D0EE4AE5F6C /* AppBuilder-dummy.m in Sources */,
 				B61D4D87812FB688AFD79CAA5D39243A /* Builder.swift in Sources */,
 				491E4137DED82FD166E1A5597CC13528 /* UIButton+AppBuilder.swift in Sources */,
+				95D13993261C676800F86615 /* UIImage+AppBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

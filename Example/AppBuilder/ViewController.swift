@@ -35,14 +35,11 @@ class ViewController: UIViewController {
             }
             .normalTitle("Tapped me", color: .white)
             .selectedTitle("Success", color: .orange)
-            .config { (make) in
-                make.backgroundColor = .blue
-            }
+            .backgroundColor(color: .blue, state: .normal)
+            .backgroundColor(color: .black, state: .selected)
             .addEvent(.touchUpInside) { (sender) in
-                print("Hello world")
                 sender.isSelected.toggle()
             }
-            
             
     }
 

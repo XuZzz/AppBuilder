@@ -78,7 +78,7 @@ extension AppBuilderWrapper where Base: UIButton {
     }
     
     @discardableResult
-    public func backgroundColor(color: UIColor, state: UIControl.State)-> Self {
+    public func backgroundColor(_ color: UIColor, state: UIControl.State)-> Self {
         base.setBackgroundColor(color: color, state: state)
         return base.builder
     }

@@ -35,8 +35,8 @@ class ViewController: UIViewController {
             }
             .normalTitle("Tapped me", color: .white)
             .selectedTitle("Success", color: .orange)
-            .backgroundColor(color: .blue, state: .normal)
-            .backgroundColor(color: .black, state: .selected)
+            .backgroundColor(.blue, state: .normal)
+            .backgroundColor(.black, state: .selected)
             .addEvent(.touchUpInside) { (sender) in
                 sender.isSelected.toggle()
             }

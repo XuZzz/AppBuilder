@@ -15,7 +15,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         let customView = UIView()
-        customView.builder.addhere(at: view)
+        customView
+            .builder
+            .addhere(at: view)
+            .config { (base) in
+                base.backgroundColor = .white
+            }
     }
 
     override func didReceiveMemoryWarning() {

@@ -35,8 +35,10 @@ extension AppBuilderWrapper where Base: UIView {
         superview.addSubview(base)
         return base.builder
     }
-}
-
-func helloBuilder() {
-    print("Builder listening")
+    
+    @discardableResult
+    public func config(_ c: (Base)-> Void)-> Self {
+        c(base)
+        return base.builder
+    }
 }

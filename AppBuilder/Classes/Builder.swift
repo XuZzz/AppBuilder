@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SnapKit
 
 public protocol AppBuilderNameSpace {
     associatedtype WrapperType
@@ -29,6 +30,10 @@ public struct AppBuilderWrapper<Base> {
 
 extension UIView: AppBuilderNameSpace {}
 
+
+// --------------------------------------------------------
+// UIView
+// --------------------------------------------------------
 extension AppBuilderWrapper where Base: UIView {
     @discardableResult
     public func addhere(at superview: UIView)-> Self {
@@ -37,13 +42,40 @@ extension AppBuilderWrapper where Base: UIView {
     }
     
     @discardableResult
+    public func layout(_ snapKitMaker: (ConstraintMaker)-> Void)-> Self {
+        base.snp.makeConstraints(snapKitMaker)
+        return base.builder
+    }
+    
+    @discardableResult
     public func config(_ c: (Base)-> Void)-> Self {
         c(base)
         return base.builder
     }
-    
-    
-    public func getSelf()-> Self {
+}
+
+public typealias ButtonAction = (UIButton)-> Void
+extension AppBuilderWrapper where Base: UIButton {
+    @discardableResult
+    public func addEvent(_ event: UIControl.Event, action: @escaping ButtonAction)-> Self {
+        base.addAction(action, controlEvent: event)
         return base.builder
     }
+    
+    
+    @discardableResult
+    public func normalTitle(_ title: String, color: UIColor = .black)-> Self {
+        base.setTitle(title, for: .normal)
+        base.setTitleColor(color, for: .normal)
+        return base.builder
+    }
+    
+    @discardableResult
+    public func selectedTitle(_ title: String, color: UIColor? = nil)-> Self {
+        base.setTitle(title, for: .selected)
+        base.setTitleColor(color == nil ? base.titleColor(for: .normal) : color!, for: .selected)
+        return base.builder
+    }
+    
+    
 }

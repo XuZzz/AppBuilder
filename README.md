@@ -22,7 +22,7 @@ pod 'AppBuilder'
 
 ## Author
 
-许朕, xuzhen@chidudata.com
+Xu, xuzhen0924@gmail.com
 
 ## License
 

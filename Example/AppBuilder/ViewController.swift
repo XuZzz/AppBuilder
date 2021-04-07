@@ -8,8 +8,18 @@
 
 import UIKit
 import AppBuilder
+import Combine
+
+
+class CustomViewModel {
+    @Published var title = false
+}
 
 class ViewController: UIViewController {
+    
+    private var subscriptions = Set<AnyCancellable>()
+    
+    private var viewModel = CustomViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,11 +30,22 @@ class ViewController: UIViewController {
             .addhere(at: view)
             .layout{(make) in
                 make.center.equalTo(view)
-                make.size.equalTo(CGSize(width: 30, height: 30))
+                make.size.equalTo(view.frame.size)
             }
-            .config { (base) in
+            .config {(base) in
                 base.backgroundColor = .red
             }
+            .bind(to: viewModel.$title) { (value, base) in
+                guard let value = value else {
+                    return
+                }
+                if value {
+                    base.backgroundColor = .black
+                }else {
+                    base.backgroundColor = .red
+                }
+            }
+            .store(in: &subscriptions)
         
         UIButton()
             .builder
@@ -37,8 +58,9 @@ class ViewController: UIViewController {
             .selectedTitle("Success", color: .orange)
             .backgroundColor(.blue, state: .normal)
             .backgroundColor(.black, state: .selected)
-            .addEvent(.touchUpInside) { (sender) in
+            .addEvent(.touchUpInside) { [weak self](sender) in
                 sender.isSelected.toggle()
+                self?.viewModel.title.toggle()
             }
             
     }

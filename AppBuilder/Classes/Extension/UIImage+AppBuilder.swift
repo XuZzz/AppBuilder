@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 extension UIImage {
     
     public convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
@@ -18,7 +16,6 @@ extension UIImage {
         UIRectFill(rect)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
         guard let cgImage = image?.cgImage else { return nil }
         self.init(cgImage: cgImage)
     }

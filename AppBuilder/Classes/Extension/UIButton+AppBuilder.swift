@@ -7,6 +7,35 @@
 
 import Foundation
 
+public typealias ButtonAction = (UIButton)-> Void
+extension AppBuilderWrapper where Base: UIButton {
+    @discardableResult
+    public func addEvent(_ event: UIControl.Event, action: @escaping ButtonAction)-> Self {
+        base.addAction(action, controlEvent: event)
+        return base.builder
+    }
+    
+    @discardableResult
+    public func normalTitle(_ title: String, color: UIColor = .black)-> Self {
+        base.setTitle(title, for: .normal)
+        base.setTitleColor(color, for: .normal)
+        return base.builder
+    }
+    
+    @discardableResult
+    public func selectedTitle(_ title: String, color: UIColor? = nil)-> Self {
+        base.setTitle(title, for: .selected)
+        base.setTitleColor(color == nil ? base.titleColor(for: .normal) : color!, for: .selected)
+        return base.builder
+    }
+    
+    @discardableResult
+    public func backgroundColor(_ color: UIColor, state: UIControl.State)-> Self {
+        base.setBackgroundColor(color: color, state: state)
+        return base.builder
+    }
+}
+
 extension UIButton {
     
     private struct AssociatedKeys{
@@ -17,10 +46,15 @@ extension UIButton {
     
     @objc dynamic var action: ButtonAction? {
         set{
-            objc_setAssociatedObject(self,&AssociatedKeys.actionKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY)
+            objc_setAssociatedObject(self,
+                                     &AssociatedKeys.actionKey,
+                                     newValue,
+                                     objc_AssociationPolicy.OBJC_ASSOCIATION_COPY)
         }
         get{
-            if let action = objc_getAssociatedObject(self, &AssociatedKeys.actionKey) as? ButtonAction{
+            if let action = objc_getAssociatedObject(self,
+                                                     &AssociatedKeys.actionKey) as? ButtonAction
+            {
                 return action
             }
             return nil
@@ -29,10 +63,15 @@ extension UIButton {
     
     @objc dynamic var normalBackgroundColor: UIColor? {
         set{
-            objc_setAssociatedObject(self,&AssociatedKeys.normalBackgroundColorKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY)
+            objc_setAssociatedObject(self,
+                                     &AssociatedKeys.normalBackgroundColorKey,
+                                     newValue,
+                                     objc_AssociationPolicy.OBJC_ASSOCIATION_COPY)
         }
         get{
-            if let color = objc_getAssociatedObject(self, &AssociatedKeys.normalBackgroundColorKey) as? UIColor{
+            if let color = objc_getAssociatedObject(self,
+                                                    &AssociatedKeys.normalBackgroundColorKey) as? UIColor
+            {
                 return color
             }
             return backgroundColor
@@ -41,10 +80,15 @@ extension UIButton {
     
     @objc dynamic var selectedBackgroundColor: UIColor? {
         set{
-            objc_setAssociatedObject(self,&AssociatedKeys.selectedBackgroundColorKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY)
+            objc_setAssociatedObject(self,
+                                     &AssociatedKeys.selectedBackgroundColorKey,
+                                     newValue,
+                                     objc_AssociationPolicy.OBJC_ASSOCIATION_COPY)
         }
         get{
-            if let color = objc_getAssociatedObject(self, &AssociatedKeys.selectedBackgroundColorKey) as? UIColor{
+            if let color = objc_getAssociatedObject(self,
+                                                    &AssociatedKeys.selectedBackgroundColorKey) as? UIColor
+            {
                 return color
             }
             return backgroundColor
@@ -65,6 +109,5 @@ extension UIButton {
     func setBackgroundColor(color: UIColor, state: UIControl.State) {
         setBackgroundImage(UIImage(color: color), for: state)
     }
-    
     
 }

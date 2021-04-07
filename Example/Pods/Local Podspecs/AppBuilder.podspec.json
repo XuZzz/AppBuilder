@@ -1,6 +1,6 @@
 {
   "name": "AppBuilder",
-  "version": "0.1.4",
+  "version": "0.1.7",
   "summary": "A short description of AppBuilder.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/XuZzz/AppBuilder",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/XuZzz/AppBuilder.git",
-    "tag": "0.1.4"
+    "tag": "0.1.7"
   },
   "platforms": {
     "ios": "11.0"
@@ -22,6 +22,9 @@
   "swift_versions": "5.0",
   "dependencies": {
     "SnapKit": [
+
+    ],
+    "SwifterSwift": [
 
     ]
   },

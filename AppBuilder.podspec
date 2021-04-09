@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AppBuilder'
-  s.version          = '0.1.7'
+  s.version          = '0.1.8'
   s.summary          = 'A short description of AppBuilder.'
 
 # This description is used to generate tags and improve search results.
@@ -41,4 +41,5 @@ TODO: Add long description of the pod here.
   # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'SnapKit'
   s.dependency 'SwifterSwift'
+  s.dependency 'Moya'
 end

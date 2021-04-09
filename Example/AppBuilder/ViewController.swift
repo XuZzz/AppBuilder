@@ -9,13 +9,17 @@
 import UIKit
 import AppBuilder
 import Combine
+import Moya
+
 
 
 class CustomViewModel {
+    
     @Published var title = false
 }
 
 class ViewController: UIViewController {
+    
     
     private var subscriptions = Set<AnyCancellable>()
     
@@ -62,7 +66,7 @@ class ViewController: UIViewController {
                 sender.isSelected.toggle()
                 self?.viewModel.title.toggle()
             }
-            
+        
     }
 
     override func didReceiveMemoryWarning() {

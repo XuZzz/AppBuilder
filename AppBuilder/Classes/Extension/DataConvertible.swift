@@ -68,12 +68,13 @@ extension ParameterConvertable where Self: Codable {
 // 通过check()，为请求参数增加time stamp和 sign用作网络请求
 // --------------------------------------------------------
 public protocol ParameterChecker {
-    func check(para: [String: Any], setSign: @autoclosure()-> String)-> [String: Any]
+    func check(para: [String : Any], setSign: @escaping([String: Any]) -> String) -> [String : Any]
 }
 extension ParameterChecker {
-    public func check(para: [String: Any], setSign: @autoclosure()-> String)-> [String: Any] {
+    
+    public func check(para: [String : Any], setSign: @escaping([String: Any]) -> String) -> [String : Any] {
         var p = setTimestamp(para)
-        p["sign"] = setSign()
+        p["sign"] = setSign(p)
         return p
     }
     

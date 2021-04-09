@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 
-class ResponseStatus: Responseable {
+public class ResponseStatus: Responseable {
     let code: Int?
     let message: String?
     let sysTime: Int?
@@ -17,19 +17,19 @@ class ResponseStatus: Responseable {
 
 
 /// 服务器返回字段result为字典时使用
-class BaseResponse<T: Responseable>: Responseable {
+public class BaseResponse<T: Responseable>: Responseable {
     var status: ResponseStatus?
     var result: T? = nil
     
     init() {}
 }
 /// 服务器返回字段result为数组时使用
-class BaseResponses<T: Responseable>: Responseable {
+public class BaseResponses<T: Responseable>: Responseable {
     var status: ResponseStatus?
     var result: [T]? = nil
 }
 
-enum RequestError: Error {
+public enum RequestError: Error {
     // 401
     case userExpired
     // 403
@@ -58,7 +58,7 @@ enum RequestError: Error {
 }
 
 
-protocol Requestable {
+public protocol Requestable {
     
     var request: URLRequest {get}
     
@@ -66,7 +66,7 @@ protocol Requestable {
     func fetch()-> AnyPublisher<Data, Error>
 }
 
-protocol DataTaskAble: Requestable, ParameterChecker {
+public protocol DataTaskAble: Requestable, ParameterChecker {
     var baseurl: String {get}
     var path: String {get}
     var method: String {get}
@@ -75,7 +75,7 @@ protocol DataTaskAble: Requestable, ParameterChecker {
 }
 
 extension DataTaskAble {
-    var request: URLRequest {
+    public var request: URLRequest {
         get {
             var r = URLRequest(url: URL(string: baseurl + path)!)
             r.httpMethod = method
@@ -106,7 +106,7 @@ extension DataTaskAble {
     /// 401 -> catch 并交由另一个请求执行changeToken的动作
     /// 403 -> failure 终止请求，用户需重新登录才能访问
     @available(iOS 13.0, *)
-    func fetch()-> AnyPublisher<Data, Error> {
+    public func fetch()-> AnyPublisher<Data, Error> {
         print("请求参数:\(parameters)")
         URLSession.shared.invalidateAndCancel()
         return URLSession

@@ -8,7 +8,7 @@
 import Foundation
 
 
-var is_iPhoneX: Bool {
+public var is_iPhoneX: Bool {
     var isMore:Bool = false
     if #available(iOS 11.0, *) {
         if let window = UIApplication.shared.windows.first {
@@ -19,7 +19,7 @@ var is_iPhoneX: Bool {
 }
 
 extension CGFloat {
-    static var tabbarHeight: CGFloat {
+    public static var tabbarHeight: CGFloat {
         if is_iPhoneX {
             return 82
         }else {
@@ -30,7 +30,7 @@ extension CGFloat {
 
 extension Dictionary {
     
-    var jsonData: Data? {
+    public var jsonData: Data? {
         if !JSONSerialization.isValidJSONObject(self) {
             print("is not a valid json object")
             return nil
@@ -46,11 +46,11 @@ extension Dictionary {
 }
 
 extension UIScreen {
-    static var width: CGFloat {
+    public static var width: CGFloat {
         return UIScreen.main.bounds.width
     }
     
-    static var height: CGFloat {
+    public static var height: CGFloat {
         return UIScreen.main.bounds.height
     }
 }

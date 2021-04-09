@@ -10,12 +10,12 @@ import Foundation
 
 /// 数据转换 可将data数据序列化为Model。
 /// Model类需要遵从Decodable
-protocol Parseable {
+public protocol Parseable {
     static func parse(data: Data)-> Self?
 }
 
 extension Parseable where Self: Decodable {
-    static func parse(data: Data)-> Self? {
+    public static func parse(data: Data)-> Self? {
         let decoder = JSONDecoder()
         do {
             return try decoder.decode(Self.self, from: data)
@@ -28,18 +28,18 @@ extension Parseable where Self: Decodable {
 
 /// 一个响应，想要被序列化，需要实现Decodable&Parseable
 /// 这里直接起别名，方便实用
-typealias Responseable = Decodable & Parseable
+public typealias Responseable = Decodable & Parseable
 
 
 /// 参数转换
 /// Model类遵从此协议后，可直接调用convertToDict()将model转化为[String: Any]? 用作请求参数等其他用途
-protocol ParameterConvertable: Codable {
+public protocol ParameterConvertable: Codable {
     func convertToDict()-> [String: Any]?
     func convertToData()-> Data?
 }
 
 extension ParameterConvertable where Self: Codable {
-    func convertToDict()-> [String: Any]? {
+    public func convertToDict()-> [String: Any]? {
         let encoder = JSONEncoder()
         do {
             let data = try encoder.encode(self)
@@ -50,7 +50,7 @@ extension ParameterConvertable where Self: Codable {
         }
         return nil
     }
-    func convertToData()-> Data? {
+    public func convertToData()-> Data? {
         let encoder = JSONEncoder()
         do {
             return try encoder.encode(self)
@@ -67,11 +67,11 @@ extension ParameterConvertable where Self: Codable {
 // 参数包装
 // 通过check()，为请求参数增加time stamp和 sign用作网络请求
 // --------------------------------------------------------
-protocol ParameterChecker {
+public protocol ParameterChecker {
     func check(para: [String: Any], setSign: @autoclosure()-> String)-> [String: Any]
 }
 extension ParameterChecker {
-    func check(para: [String: Any], setSign: @autoclosure()-> String)-> [String: Any] {
+    public func check(para: [String: Any], setSign: @autoclosure()-> String)-> [String: Any] {
         var p = setTimestamp(para)
         p["sign"] = setSign()
         return p

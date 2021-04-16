@@ -16,6 +16,7 @@ import Moya
 class CustomViewModel {
     
     @Published var title = false
+    @Published var content = ""
 }
 
 class ViewController: UIViewController {
@@ -28,6 +29,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
         let customView = UIView()
         customView
             .builder
@@ -39,7 +41,7 @@ class ViewController: UIViewController {
             .config {(base) in
                 base.backgroundColor = .red
             }
-            .bind(to: viewModel.$title) { (value, base) in
+            .bind(to: viewModel.$title) { (value, base)  in
                 guard let value = value else {
                     return
                 }
@@ -50,6 +52,10 @@ class ViewController: UIViewController {
                 }
             }
             .store(in: &subscriptions)
+            
+        
+
+        
         
         UIButton()
             .builder

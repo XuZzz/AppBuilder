@@ -11,7 +11,7 @@ import Foundation
 public class ResponseStatus: Responseable {
     public let code: Int?
     public let message: String?
-    let sysTime: Int?
+    public let sysTime: Int?
 }
 
 

@@ -9,26 +9,6 @@ import Foundation
 import Combine
 
 
-public class ResponseStatus: Responseable {
-    let code: Int?
-    let message: String?
-    let sysTime: Int?
-}
-
-
-/// 服务器返回字段result为字典时使用
-public class BaseResponse<T: Responseable>: Responseable {
-    var status: ResponseStatus?
-    var result: T? = nil
-    
-    init() {}
-}
-/// 服务器返回字段result为数组时使用
-public class BaseResponses<T: Responseable>: Responseable {
-    var status: ResponseStatus?
-    var result: [T]? = nil
-}
-
 public enum RequestError: Error {
     // 401
     case userExpired
@@ -39,7 +19,7 @@ public enum RequestError: Error {
     case sessionError(error: Error)
     case unkonwn
     
-    var description: String {
+    public var description: String {
         switch self {
         case .userExpired:
             return "用户身份过期"

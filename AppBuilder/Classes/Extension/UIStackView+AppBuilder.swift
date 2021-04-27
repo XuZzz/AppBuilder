@@ -30,7 +30,7 @@ extension SpaceView where Self: UIStackView {
 
 public class VStackView: UIStackView, SpaceView {
     
-    convenience init(distribution: Distribution = .fill, alignment: Alignment? = nil, spacing: CGFloat? = nil) {
+    public convenience init(distribution: Distribution = .fill, alignment: Alignment? = nil, spacing: CGFloat? = nil) {
         //
         self.init(frame: .zero)
         self.axis = .vertical
@@ -43,11 +43,16 @@ public class VStackView: UIStackView, SpaceView {
             self.spacing = s
         }
     }
+    
+    convenience init() {
+        self.init(frame: .zero)
+        self.axis = .vertical
+    }
 }
 
 public class HStackView: UIStackView, SpaceView {
     
-    convenience init(distribution: Distribution = .fill, alignment: Alignment? = nil, spacing: CGFloat? = nil) {
+    public convenience init(distribution: Distribution = .fill, alignment: Alignment? = nil, spacing: CGFloat? = nil) {
         //
         self.init(frame: .zero)
         self.axis = .horizontal
@@ -60,6 +65,12 @@ public class HStackView: UIStackView, SpaceView {
             self.spacing = s
         }
     }
+    
+    public convenience init() {
+        self.init(frame: .zero)
+        self.axis = .horizontal
+    }
+
 }
 
 extension UIStackView {
